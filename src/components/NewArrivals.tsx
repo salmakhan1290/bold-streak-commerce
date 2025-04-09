@@ -16,68 +16,86 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    name: "Performance Running Jacket",
-    price: 120,
-    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=2005&auto=format&fit=crop",
+    name: "Slim Fit Formal Shirt",
+    price: 799,
+    image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=1925&auto=format&fit=crop",
     isNew: true,
-    category: "Men",
-    path: "/products/performance-running-jacket"
+    category: "Formal",
+    path: "/products/slim-fit-formal-shirt"
   },
   {
     id: 2,
-    name: "Lightweight Training Shorts",
-    price: 65,
-    image: "https://images.unsplash.com/photo-1562183241-840b8af0721e?q=80&w=1965&auto=format&fit=crop",
+    name: "Casual Linen Shirt",
+    price: 649,
+    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1976&auto=format&fit=crop",
     isNew: true,
-    category: "Women",
-    path: "/products/lightweight-training-shorts"
+    category: "Casual",
+    path: "/products/casual-linen-shirt"
   },
   {
     id: 3,
-    name: "Urban Street Hoodie",
-    price: 89,
-    image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1972&auto=format&fit=crop",
+    name: "Graphic Print T-Shirt",
+    price: 399,
+    image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1974&auto=format&fit=crop",
     isNew: true,
-    category: "Men",
-    path: "/products/urban-street-hoodie"
+    category: "T-Shirts",
+    path: "/products/graphic-print-t-shirt"
   },
   {
     id: 4,
-    name: "Performance Sports Bra",
-    price: 49,
-    image: "https://images.unsplash.com/photo-1648368283135-e5dcbf69f420?q=80&w=1972&auto=format&fit=crop",
+    name: "Slim Fit Stretch Jeans",
+    price: 1199,
+    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1974&auto=format&fit=crop",
     isNew: true,
-    category: "Women",
-    path: "/products/performance-sports-bra"
+    category: "Jeans",
+    path: "/products/slim-fit-stretch-jeans"
   },
   {
     id: 5,
-    name: "Graphic T-Shirt",
-    price: 35,
-    image: "https://images.unsplash.com/photo-1583744946564-b52d01a7f418?q=80&w=1974&auto=format&fit=crop",
+    name: "Formal Trouser",
+    price: 899,
+    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=1974&auto=format&fit=crop",
     isNew: true,
-    category: "Kids",
-    path: "/products/graphic-t-shirt"
+    category: "Formal",
+    path: "/products/formal-trouser"
   },
   {
     id: 6,
-    name: "Basketball Sneakers",
-    price: 129,
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop",
+    name: "Leather Belt",
+    price: 499,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1974&auto=format&fit=crop",
     isNew: true,
-    category: "Men",
-    path: "/products/basketball-sneakers"
+    category: "Accessories",
+    path: "/products/leather-belt"
+  },
+  {
+    id: 7,
+    name: "Classic Polo T-Shirt",
+    price: 549,
+    image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1964&auto=format&fit=crop",
+    isNew: true,
+    category: "T-Shirts",
+    path: "/products/classic-polo-t-shirt"
+  },
+  {
+    id: 8,
+    name: "Printed Casual Shirt",
+    price: 699,
+    image: "https://images.unsplash.com/photo-1588359348347-9bc6cbbb689e?q=80&w=1974&auto=format&fit=crop",
+    isNew: true,
+    category: "Casual",
+    path: "/products/printed-casual-shirt"
   }
 ];
 
 const NewArrivals = () => {
   return (
-    <section className="py-16">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-brand-black font-heading text-3xl md:text-4xl font-bold">NEW ARRIVALS</h2>
+          <h2 className="text-brand-black font-heading text-3xl md:text-4xl font-bold">JUST DROPPED</h2>
           <Link 
-            to="/products/new" 
+            to="/new-arrivals" 
             className="text-brand-black font-medium hover:text-brand-yellow flex items-center gap-1 transition-colors"
           >
             View All
@@ -85,8 +103,8 @@ const NewArrivals = () => {
           </Link>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 overflow-x-auto pb-4">
-          {products.map((product) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          {products.slice(0, 8).map((product) => (
             <div key={product.id} className="group relative">
               <Link to={product.path} className="block">
                 <div className="relative rounded-lg overflow-hidden bg-gray-100 aspect-[3/4]">
@@ -117,7 +135,7 @@ const NewArrivals = () => {
                 <div className="mt-3">
                   <p className="text-xs text-brand-gray font-medium">{product.category}</p>
                   <h3 className="text-brand-black font-medium mt-1 truncate">{product.name}</h3>
-                  <p className="text-brand-black font-bold mt-1">${product.price}</p>
+                  <p className="text-brand-black font-bold mt-1">₹{product.price}</p>
                 </div>
               </Link>
             </div>

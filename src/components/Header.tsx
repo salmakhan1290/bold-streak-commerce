@@ -1,22 +1,45 @@
 
 import React, { useState } from 'react';
-import { ShoppingCart, User, Search, Menu, X } from 'lucide-react';
+import { ShoppingCart, User, Search, Menu, X, Phone, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const categories = [
-  { name: "MEN", path: "/men" },
-  { name: "WOMEN", path: "/women" },
-  { name: "KIDS", path: "/kids" },
-  { name: "CASUAL", path: "/casual" },
-  { name: "FORMAL", path: "/formal" },
-  { name: "COLLECTIONS", path: "/collections" }
+  { name: "NEW ARRIVALS", path: "/new-arrivals" },
+  { name: "SHIRTS", path: "/shirts" },
+  { name: "T-SHIRTS", path: "/t-shirts" },
+  { name: "JEANS", path: "/jeans" },
+  { name: "FORMAL WEAR", path: "/formal-wear" },
+  { name: "ACCESSORIES", path: "/accessories" },
+  { name: "SALE", path: "/sale" }
+];
+
+const announcements = [
+  "Free Delivery in Noor Bagh Area",
+  "New Collection Available",
+  "Shop the latest trends now"
 ];
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentAnnouncement, setCurrentAnnouncement] = useState(0);
+
+  // Rotate announcements every 5 seconds
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentAnnouncement((prev) => (prev + 1) % announcements.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-brand-white shadow-md">
+    <header className="sticky top-0 z-50 bg-brand-white">
+      {/* Announcement Bar */}
+      <div className="bg-brand-yellow text-brand-black py-2">
+        <div className="container mx-auto px-4 text-center text-sm font-medium">
+          {announcements[currentAnnouncement]}
+        </div>
+      </div>
+
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -26,7 +49,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-6">
             {categories.map((category) => (
               <Link 
                 key={category.name} 
@@ -37,6 +60,17 @@ const Header = () => {
               </Link>
             ))}
           </nav>
+
+          {/* Contact Info - Desktop */}
+          <div className="hidden md:flex items-center mr-4">
+            <a href="tel:8899404820" className="flex items-center text-sm text-brand-black hover:text-brand-yellow">
+              <Phone size={16} className="mr-1" />
+              <span>8899404820</span>
+            </a>
+            <a href="https://wa.me/8899404820" className="ml-3 text-brand-black hover:text-brand-yellow">
+              <MessageCircle size={18} />
+            </a>
+          </div>
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
@@ -81,6 +115,16 @@ const Header = () => {
                 </Link>
               ))}
             </nav>
+            {/* Contact Info - Mobile */}
+            <div className="flex justify-center space-x-4 mt-4 pt-2 border-t border-gray-100">
+              <a href="tel:8899404820" className="flex items-center text-sm text-brand-black">
+                <Phone size={16} className="mr-1" />
+                <span>8899404820</span>
+              </a>
+              <a href="https://wa.me/8899404820" className="text-brand-black">
+                <MessageCircle size={18} />
+              </a>
+            </div>
           </div>
         </div>
       )}

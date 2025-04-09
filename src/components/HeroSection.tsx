@@ -15,27 +15,27 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    headline: "BREAK BOUNDARIES",
-    subheading: "New Performance Collection",
-    cta: "SHOP NOW",
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop",
-    path: "/collections/performance"
+    headline: "ELEVATE YOUR STYLE",
+    subheading: "New Season Collection",
+    cta: "SHOP LATEST COLLECTION",
+    image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=2070&auto=format&fit=crop",
+    path: "/new-arrivals"
   },
   {
     id: 2,
-    headline: "REDEFINE PERFORMANCE",
-    subheading: "Engineered for Excellence",
-    cta: "EXPLORE",
-    image: "https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?q=80&w=2070&auto=format&fit=crop",
-    path: "/collections/engineered"
+    headline: "FORMAL ELEGANCE",
+    subheading: "Premium Shirts & Suits",
+    cta: "EXPLORE FORMAL WEAR",
+    image: "https://images.unsplash.com/photo-1594938291221-94f18cbb5660?q=80&w=2060&auto=format&fit=crop",
+    path: "/formal-wear"
   },
   {
     id: 3,
-    headline: "STREET CULTURE",
-    subheading: "Urban Collection 2025",
-    cta: "DISCOVER",
-    image: "https://images.unsplash.com/photo-1507398941619-241fcc27bff3?q=80&w=1974&auto=format&fit=crop",
-    path: "/collections/street"
+    headline: "CASUAL COMFORT",
+    subheading: "T-Shirts & Jeans Collection",
+    cta: "DISCOVER CASUAL WEAR",
+    image: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=1974&auto=format&fit=crop",
+    path: "/casual"
   }
 ];
 
@@ -62,7 +62,7 @@ const HeroSection = () => {
             className="absolute inset-0 bg-cover bg-center"
             style={{ 
               backgroundImage: `url(${slide.image})`,
-              filter: 'brightness(0.7)'
+              filter: 'brightness(0.8)'
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
@@ -75,14 +75,23 @@ const HeroSection = () => {
               <h1 className="text-brand-white font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
                 {slide.headline}
               </h1>
-              <Link 
-                to={slide.path} 
-                className="inline-flex items-center bg-brand-yellow text-brand-black px-6 py-3 rounded-md font-bold 
-                hover:bg-opacity-90 transition-all duration-300 group"
-              >
-                {slide.cta}
-                <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link 
+                  to={slide.path} 
+                  className="inline-flex items-center bg-brand-yellow text-brand-black px-6 py-3 rounded-md font-bold 
+                  hover:bg-opacity-90 transition-all duration-300 group"
+                >
+                  {slide.cta}
+                  <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  to="/bestsellers"
+                  className="inline-flex items-center bg-transparent border border-white text-white px-6 py-3 rounded-md font-medium
+                  hover:bg-white/10 transition-all duration-300"
+                >
+                  VIEW BESTSELLERS
+                </Link>
+              </div>
             </div>
           </div>
         </div>

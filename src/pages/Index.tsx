@@ -4,10 +4,14 @@ import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import FeaturedCollections from '../components/FeaturedCollections';
 import NewArrivals from '../components/NewArrivals';
-import CampaignSection from '../components/CampaignSection';
-import InstagramFeed from '../components/InstagramFeed';
+import FeatureCollectionSection from '../components/FeatureCollectionSection';
+import LifestyleContentBlock from '../components/LifestyleContentBlock';
+import BestSellers from '../components/BestSellers';
+import Testimonials from '../components/Testimonials';
+import StoreInformation from '../components/StoreInformation';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
+import CampaignSection from '../components/CampaignSection';
 
 const Index = () => {
   return (
@@ -17,8 +21,12 @@ const Index = () => {
         <HeroSection />
         <FeaturedCollections />
         <NewArrivals />
+        <FeatureCollectionSection />
+        <LifestyleContentBlock />
+        <BestSellers />
         <CampaignSection />
-        <InstagramFeed />
+        <Testimonials />
+        <StoreInformation />
         <Newsletter />
       </main>
       <Footer />
