@@ -7,8 +7,8 @@ const categories = [
   { name: "MEN", path: "/men" },
   { name: "WOMEN", path: "/women" },
   { name: "KIDS", path: "/kids" },
-  { name: "PERFORMANCE", path: "/performance" },
-  { name: "STREET", path: "/street" },
+  { name: "CASUAL", path: "/casual" },
+  { name: "FORMAL", path: "/formal" },
   { name: "COLLECTIONS", path: "/collections" }
 ];
 
@@ -21,8 +21,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="font-heading text-2xl font-bold">
-            <span className="text-brand-black">BOLD</span>
-            <span className="text-brand-yellow">STREAK</span>
+            <span className="text-brand-black">Hit'z 99</span>
+            <span className="text-brand-yellow"> Collection</span>
           </Link>
 
           {/* Desktop Navigation */}

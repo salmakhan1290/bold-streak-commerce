@@ -14,8 +14,8 @@ const Footer = () => {
               <li><Link to="/men" className="text-brand-gray hover:text-brand-white transition-colors">Men</Link></li>
               <li><Link to="/women" className="text-brand-gray hover:text-brand-white transition-colors">Women</Link></li>
               <li><Link to="/kids" className="text-brand-gray hover:text-brand-white transition-colors">Kids</Link></li>
-              <li><Link to="/performance" className="text-brand-gray hover:text-brand-white transition-colors">Performance</Link></li>
-              <li><Link to="/street" className="text-brand-gray hover:text-brand-white transition-colors">Street</Link></li>
+              <li><Link to="/casual" className="text-brand-gray hover:text-brand-white transition-colors">Casual</Link></li>
+              <li><Link to="/formal" className="text-brand-gray hover:text-brand-white transition-colors">Formal</Link></li>
               <li><Link to="/collections" className="text-brand-gray hover:text-brand-white transition-colors">Collections</Link></li>
             </ul>
           </div>
@@ -24,8 +24,8 @@ const Footer = () => {
             <h3 className="text-brand-yellow font-heading text-lg font-bold mb-4">INFORMATION</h3>
             <ul className="space-y-2">
               <li><Link to="/about" className="text-brand-gray hover:text-brand-white transition-colors">About Us</Link></li>
-              <li><Link to="/sustainability" className="text-brand-gray hover:text-brand-white transition-colors">Sustainability</Link></li>
-              <li><Link to="/technology" className="text-brand-gray hover:text-brand-white transition-colors">Technology</Link></li>
+              <li><Link to="/quality" className="text-brand-gray hover:text-brand-white transition-colors">Quality Promise</Link></li>
+              <li><Link to="/brands" className="text-brand-gray hover:text-brand-white transition-colors">Our Brands</Link></li>
               <li><Link to="/careers" className="text-brand-gray hover:text-brand-white transition-colors">Careers</Link></li>
               <li><Link to="/blog" className="text-brand-gray hover:text-brand-white transition-colors">Blog</Link></li>
             </ul>
@@ -76,8 +76,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <Link to="/" className="font-heading text-2xl font-bold">
-                <span className="text-brand-white">BOLD</span>
-                <span className="text-brand-yellow">STREAK</span>
+                <span className="text-brand-white">Hit'z 99</span>
+                <span className="text-brand-yellow"> Collection</span>
               </Link>
             </div>
             
@@ -85,7 +85,7 @@ const Footer = () => {
               <Link to="/terms" className="hover:text-brand-white transition-colors">Terms & Conditions</Link>
               <Link to="/privacy" className="hover:text-brand-white transition-colors">Privacy Policy</Link>
               <Link to="/cookies" className="hover:text-brand-white transition-colors">Cookie Policy</Link>
-              <span>© 2025 BOLDSTREAK. All Rights Reserved</span>
+              <span>© 2025 Hit'z 99 Collection. All Rights Reserved</span>
             </div>
           </div>
         </div>
