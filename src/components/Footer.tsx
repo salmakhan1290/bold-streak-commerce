@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, YouTube } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -55,7 +55,7 @@ const Footer = () => {
                 <Instagram size={20} />
               </a>
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-brand-gray hover:text-brand-yellow transition-colors">
-                <YouTube size={20} />
+                <Youtube size={20} />
               </a>
             </div>
             <div>
