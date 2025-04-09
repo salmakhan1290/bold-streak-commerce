@@ -63,10 +63,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Brand colors
+				// Updated brand colors
 				brand: {
-					yellow: '#FFDD00',
-					black: '#000000',
+					yellow: '#E4B23A',
+					black: '#1C1C1C',
 					white: '#FFFFFF',
 					gray: '#AAAAAA',
 					'dark-gray': '#222222',

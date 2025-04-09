@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Star, ArrowRight } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface Product {
   id: number;
@@ -77,11 +79,14 @@ const products: Product[] = [
 ];
 
 const BestSellers = () => {
+  const isMobile = useIsMobile();
+  const displayProducts = isMobile ? products.slice(0, 4) : products;
+  
   return (
-    <section className="py-16">
+    <section className="py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-brand-black font-heading text-3xl md:text-4xl font-bold">CUSTOMER FAVORITES</h2>
+        <div className="flex justify-between items-center mb-6 md:mb-8">
+          <h2 className="text-brand-black font-heading text-2xl md:text-3xl lg:text-4xl font-bold">CUSTOMER FAVORITES</h2>
           <Link 
             to="/bestsellers" 
             className="text-brand-black font-medium hover:text-brand-yellow flex items-center gap-1 transition-colors"
@@ -91,8 +96,8 @@ const BestSellers = () => {
           </Link>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {displayProducts.map((product) => (
             <div key={product.id} className="group relative bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <Link to={product.path} className="block">
                 <div className="relative aspect-square overflow-hidden">
@@ -116,7 +121,7 @@ const BestSellers = () => {
                 
                 <div className="p-4">
                   <div className="flex items-center mb-2">
-                    <div className="flex text-yellow-400">
+                    <div className="flex text-brand-yellow">
                       <Star size={14} fill="currentColor" stroke="none" />
                       <Star size={14} fill="currentColor" stroke="none" />
                       <Star size={14} fill="currentColor" stroke="none" />
@@ -126,7 +131,7 @@ const BestSellers = () => {
                     <span className="text-xs text-gray-500 ml-1">({product.reviewCount})</span>
                   </div>
                   <p className="text-xs text-brand-gray font-medium">{product.category}</p>
-                  <h3 className="text-brand-black font-medium mt-1">{product.name}</h3>
+                  <h3 className="text-brand-black font-medium mt-1 truncate">{product.name}</h3>
                   <p className="text-brand-black font-bold mt-1">₹{product.price}</p>
                 </div>
               </Link>
@@ -134,10 +139,10 @@ const BestSellers = () => {
           ))}
         </div>
         
-        <div className="text-center mt-10">
+        <div className="text-center mt-8 md:mt-10">
           <Link 
             to="/bestsellers" 
-            className="inline-flex items-center bg-brand-black text-white px-6 py-3 rounded-md font-medium 
+            className="inline-flex items-center bg-brand-black text-white px-5 py-2.5 md:px-6 md:py-3 rounded-md font-medium 
             hover:bg-brand-dark-gray transition-colors duration-300 group"
           >
             SEE ALL BEST SELLERS
