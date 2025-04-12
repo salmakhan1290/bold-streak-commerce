@@ -22,7 +22,6 @@ const Index = () => {
         <HeroSection />
         <PropertyCategories />
         <FeaturedProperties />
-        <PropertySearch />
         <RecentProperties />
         <MortgageCalculator />
         <RealEstateServices />

@@ -1,65 +1,174 @@
 
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
-  const [searchType, setSearchType] = useState('buy');
+  // Tab content configuration
+  const tabContents = {
+    buy: {
+      heading: "Find the right home at the right price",
+      placeholder: "City, Address, School, Agent, ZIP",
+      buttonText: "Search",
+      buttonComponent: (
+        <Button className="bg-brand-red hover:bg-brand-red/90 text-white px-6 py-6 rounded-md md:rounded-l-none">
+          <Search className="mr-2" size={20} />
+          Search
+        </Button>
+      )
+    },
+    rent: {
+      heading: "Local rentals at your fingertips",
+      placeholder: "City, Address, School, Building, ZIP",
+      buttonText: "Search",
+      buttonComponent: (
+        <Button className="bg-brand-red hover:bg-brand-red/90 text-white px-6 py-6 rounded-md md:rounded-l-none">
+          <Search className="mr-2" size={20} />
+          Search
+        </Button>
+      )
+    },
+    sell: {
+      heading: "Sell with the industry's most experienced agents",
+      placeholder: "Enter your street address",
+      buttonText: "Get started",
+      buttonComponent: (
+        <Button className="bg-brand-red hover:bg-brand-red/90 text-white px-6 py-6 rounded-md">
+          Get started
+        </Button>
+      )
+    },
+    mortgage: {
+      heading: "Connect with a lender and get pre-approved",
+      placeholder: "City, County, ZIP",
+      buttonText: "Next",
+      buttonComponent: (
+        <Button className="bg-brand-red hover:bg-brand-red/90 text-white px-6 py-6 rounded-md">
+          Next
+        </Button>
+      )
+    },
+    estimate: {
+      heading: "Get an accurate home value estimate",
+      placeholder: "Enter your home address",
+      buttonText: "Go",
+      buttonComponent: (
+        <Button className="bg-brand-red hover:bg-brand-red/90 text-white px-6 py-6 rounded-md">
+          Go
+        </Button>
+      )
+    }
+  };
+  
+  const [activeTab, setActiveTab] = useState("buy");
   
   return (
-    <section className="relative h-[80vh] flex items-center justify-center bg-cover bg-center" 
+    <section 
+      className="relative h-[90vh] flex items-center justify-center bg-cover bg-center" 
       style={{ backgroundImage: "url('public/lovable-uploads/e301bc9f-6629-463c-8b23-fb3699e1780d.png')" }}>
       
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       
       <div className="container mx-auto px-4 z-10 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Find Your Perfect Place
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 max-w-4xl mx-auto">
+          {tabContents[activeTab].heading}
         </h1>
-        <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
-          Discover the home that's right for you among our collection of premium properties
-        </p>
         
-        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-2">
-          <div className="flex mb-4 border-b">
-            <button 
-              className={`flex-1 py-3 font-medium text-center ${searchType === 'buy' ? 'text-brand-blue border-b-2 border-brand-blue' : 'text-gray-500'}`}
-              onClick={() => setSearchType('buy')}
-            >
-              Buy
-            </button>
-            <button 
-              className={`flex-1 py-3 font-medium text-center ${searchType === 'rent' ? 'text-brand-blue border-b-2 border-brand-blue' : 'text-gray-500'}`}
-              onClick={() => setSearchType('rent')}
-            >
-              Rent
-            </button>
-            <button 
-              className={`flex-1 py-3 font-medium text-center ${searchType === 'sell' ? 'text-brand-blue border-b-2 border-brand-blue' : 'text-gray-500'}`}
-              onClick={() => setSearchType('sell')}
-            >
-              Sell
-            </button>
-            <button 
-              className={`flex-1 py-3 font-medium text-center ${searchType === 'estimate' ? 'text-brand-blue border-b-2 border-brand-blue' : 'text-gray-500'}`}
-              onClick={() => setSearchType('estimate')}
-            >
-              Estimate
-            </button>
-          </div>
-          
-          <div className="flex flex-col md:flex-row">
-            <div className="flex-grow">
-              <input 
-                type="text" 
-                placeholder="Enter an address, neighborhood, city, or ZIP code" 
-                className="w-full px-4 py-3 rounded-l-md border border-gray-300 focus:outline-none focus:border-brand-blue"
-              />
+        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+          <Tabs defaultValue="buy" value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <TabsList className="w-full grid grid-cols-5 bg-gray-100 rounded-none h-auto">
+              <TabsTrigger 
+                value="buy" 
+                className={`py-4 font-medium text-lg ${activeTab === 'buy' ? 'bg-white text-brand-navy font-semibold' : 'text-gray-700 hover:bg-gray-200'}`}
+              >
+                Buy
+              </TabsTrigger>
+              <TabsTrigger 
+                value="rent" 
+                className={`py-4 font-medium text-lg ${activeTab === 'rent' ? 'bg-white text-brand-navy font-semibold' : 'text-gray-700 hover:bg-gray-200'}`}
+              >
+                Rent
+              </TabsTrigger>
+              <TabsTrigger 
+                value="sell" 
+                className={`py-4 font-medium text-lg ${activeTab === 'sell' ? 'bg-white text-brand-navy font-semibold' : 'text-gray-700 hover:bg-gray-200'}`}
+              >
+                Sell
+              </TabsTrigger>
+              <TabsTrigger 
+                value="mortgage"
+                className={`py-4 font-medium text-lg ${activeTab === 'mortgage' ? 'bg-white text-brand-navy font-semibold' : 'text-gray-700 hover:bg-gray-200'}`}
+              >
+                Mortgage
+              </TabsTrigger>
+              <TabsTrigger 
+                value="estimate" 
+                className={`py-4 font-medium text-lg ${activeTab === 'estimate' ? 'bg-white text-brand-navy font-semibold' : 'text-gray-700 hover:bg-gray-200'}`}
+              >
+                My Home Value
+              </TabsTrigger>
+            </TabsList>
+            
+            <div className="p-6">
+              <TabsContent value="buy" className="mt-0">
+                <div className="flex flex-col md:flex-row">
+                  <Input 
+                    type="text" 
+                    placeholder={tabContents.buy.placeholder}
+                    className="w-full px-4 py-6 rounded-md md:rounded-r-none border border-gray-300 text-lg"
+                  />
+                  {tabContents.buy.buttonComponent}
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="rent" className="mt-0">
+                <div className="flex flex-col md:flex-row">
+                  <Input 
+                    type="text" 
+                    placeholder={tabContents.rent.placeholder}
+                    className="w-full px-4 py-6 rounded-md md:rounded-r-none border border-gray-300 text-lg"
+                  />
+                  {tabContents.rent.buttonComponent}
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="sell" className="mt-0">
+                <div className="flex flex-col md:flex-row">
+                  <Input 
+                    type="text" 
+                    placeholder={tabContents.sell.placeholder}
+                    className="w-full px-4 py-6 rounded-md border border-gray-300 text-lg mb-4 md:mb-0 md:mr-4"
+                  />
+                  {tabContents.sell.buttonComponent}
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="mortgage" className="mt-0">
+                <div className="flex flex-col md:flex-row">
+                  <Input 
+                    type="text" 
+                    placeholder={tabContents.mortgage.placeholder}
+                    className="w-full px-4 py-6 rounded-md border border-gray-300 text-lg mb-4 md:mb-0 md:mr-4"
+                  />
+                  {tabContents.mortgage.buttonComponent}
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="estimate" className="mt-0">
+                <div className="flex flex-col md:flex-row">
+                  <Input 
+                    type="text" 
+                    placeholder={tabContents.estimate.placeholder}
+                    className="w-full px-4 py-6 rounded-md border border-gray-300 text-lg mb-4 md:mb-0 md:mr-4"
+                  />
+                  {tabContents.estimate.buttonComponent}
+                </div>
+              </TabsContent>
             </div>
-            <button className="mt-2 md:mt-0 bg-brand-red hover:bg-opacity-90 text-white px-6 py-3 rounded-md md:rounded-l-none transition duration-300 flex items-center justify-center">
-              <Search className="mr-2" size={20} />
-              Search
-            </button>
-          </div>
+          </Tabs>
         </div>
       </div>
     </section>
