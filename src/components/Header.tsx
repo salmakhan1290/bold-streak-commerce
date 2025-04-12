@@ -7,9 +7,11 @@ const categories = [
   { name: "BUY", path: "/buy" },
   { name: "RENT", path: "/rent" },
   { name: "SELL", path: "/sell" },
-  { name: "MORTGAGE", path: "/mortgage" },
   { name: "AGENTS", path: "/agents" },
-  { name: "NEW DEVELOPMENTS", path: "/new-developments" },
+  { name: "MARKET REPORT", path: "/market-report" },
+  { name: "PROPERTIES", path: "/properties" },
+  { name: "ABOUT", path: "/about" },
+  { name: "CONTACT", path: "/contact" },
 ];
 
 const announcements = [
@@ -96,12 +98,12 @@ const Header = () => {
             <div className="flex justify-center mb-4">
               <Search size={20} />
             </div>
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-0">
               {categories.map((category) => (
                 <Link 
                   key={category.name} 
                   to={category.path} 
-                  className="text-brand-navy font-medium text-center text-sm tracking-wider py-2 border-b border-gray-100"
+                  className="text-brand-navy font-medium text-center text-sm tracking-wider py-3 border-b border-gray-100"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {category.name}
