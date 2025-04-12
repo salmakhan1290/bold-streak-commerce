@@ -8,54 +8,54 @@ import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection = () => {
-  // Tab content configuration
+  // Tab content configuration with different headings for each tab
   const tabContents = {
     buy: {
-      heading: "Claim your home and get a free estimate",
-      placeholder: "Enter your street address",
+      heading: "Find it. Tour it. Own it.",
+      placeholder: "Enter an address, neighborhood, city, or ZIP code",
       buttonText: "Search",
       buttonComponent: (
-        <Button className="bg-brand-red hover:bg-brand-red/90 text-white p-3 min-w-12 rounded-md md:rounded-l-none">
+        <Button className="bg-brand-red hover:bg-brand-red/90 text-white p-3 h-full rounded-md md:rounded-l-none">
           <Search size={20} />
         </Button>
       )
     },
     rent: {
-      heading: "Claim your home and get a free estimate",
-      placeholder: "Enter your street address",
+      heading: "Search apartments & homes for rent",
+      placeholder: "Enter a location or ZIP code",
       buttonText: "Search",
       buttonComponent: (
-        <Button className="bg-brand-red hover:bg-brand-red/90 text-white p-3 min-w-12 rounded-md md:rounded-l-none">
+        <Button className="bg-brand-red hover:bg-brand-red/90 text-white p-3 h-full rounded-md md:rounded-l-none">
           <Search size={20} />
         </Button>
       )
     },
     sell: {
-      heading: "Claim your home and get a free estimate",
-      placeholder: "Enter your street address",
-      buttonText: "Search",
+      heading: "Sell your home with confidence",
+      placeholder: "Enter your home address",
+      buttonText: "Get estimate",
       buttonComponent: (
-        <Button className="bg-brand-red hover:bg-brand-red/90 text-white p-3 min-w-12 rounded-md md:rounded-l-none">
+        <Button className="bg-brand-red hover:bg-brand-red/90 text-white p-3 h-full rounded-md md:rounded-l-none">
           <Search size={20} />
         </Button>
       )
     },
     mortgage: {
-      heading: "Claim your home and get a free estimate",
-      placeholder: "Enter your street address",
-      buttonText: "Search",
+      heading: "Get pre-approved for a mortgage",
+      placeholder: "Enter property value, down payment",
+      buttonText: "Calculate",
       buttonComponent: (
-        <Button className="bg-brand-red hover:bg-brand-red/90 text-white p-3 min-w-12 rounded-md md:rounded-l-none">
+        <Button className="bg-brand-red hover:bg-brand-red/90 text-white p-3 h-full rounded-md md:rounded-l-none">
           <Search size={20} />
         </Button>
       )
     },
     estimate: {
-      heading: "Claim your home and get a free estimate",
+      heading: "See how much your home is worth",
       placeholder: "Enter your street address",
-      buttonText: "Search",
+      buttonText: "Get estimate",
       buttonComponent: (
-        <Button className="bg-brand-red hover:bg-brand-red/90 text-white p-3 min-w-12 rounded-md md:rounded-l-none">
+        <Button className="bg-brand-red hover:bg-brand-red/90 text-white p-3 h-full rounded-md md:rounded-l-none">
           <Search size={20} />
         </Button>
       )
@@ -68,7 +68,7 @@ const HeroSection = () => {
   return (
     <section 
       className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center bg-cover bg-center" 
-      style={{ backgroundImage: "url('public/lovable-uploads/e409b63d-9dfc-4e79-9fae-347b5eb55b73.png')" }}>
+      style={{ backgroundImage: "url('/lovable-uploads/e409b63d-9dfc-4e79-9fae-347b5eb55b73.png')" }}>
       
       <div className="absolute inset-0 bg-black bg-opacity-30"></div>
       
@@ -114,57 +114,67 @@ const HeroSection = () => {
             
             <div className="p-0">
               <TabsContent value="buy" className="mt-0">
-                <div className="flex flex-row">
+                <div className="flex flex-col md:flex-row">
                   <Input 
                     type="text" 
                     placeholder={tabContents.buy.placeholder}
-                    className="w-full px-4 py-4 rounded-none border-0 border-r border-gray-200 text-gray-700 text-base"
+                    className="w-full px-4 py-4 rounded-none border-0 md:border-r border-gray-200 text-gray-700 text-base"
                   />
-                  {tabContents.buy.buttonComponent}
+                  <div className="h-12 md:h-auto">
+                    {tabContents.buy.buttonComponent}
+                  </div>
                 </div>
               </TabsContent>
               
               <TabsContent value="rent" className="mt-0">
-                <div className="flex flex-row">
+                <div className="flex flex-col md:flex-row">
                   <Input 
                     type="text" 
                     placeholder={tabContents.rent.placeholder}
-                    className="w-full px-4 py-4 rounded-none border-0 border-r border-gray-200 text-gray-700 text-base"
+                    className="w-full px-4 py-4 rounded-none border-0 md:border-r border-gray-200 text-gray-700 text-base"
                   />
-                  {tabContents.rent.buttonComponent}
+                  <div className="h-12 md:h-auto">
+                    {tabContents.rent.buttonComponent}
+                  </div>
                 </div>
               </TabsContent>
               
               <TabsContent value="sell" className="mt-0">
-                <div className="flex flex-row">
+                <div className="flex flex-col md:flex-row">
                   <Input 
                     type="text" 
                     placeholder={tabContents.sell.placeholder}
-                    className="w-full px-4 py-4 rounded-none border-0 border-r border-gray-200 text-gray-700 text-base"
+                    className="w-full px-4 py-4 rounded-none border-0 md:border-r border-gray-200 text-gray-700 text-base"
                   />
-                  {tabContents.sell.buttonComponent}
+                  <div className="h-12 md:h-auto">
+                    {tabContents.sell.buttonComponent}
+                  </div>
                 </div>
               </TabsContent>
               
               <TabsContent value="mortgage" className="mt-0">
-                <div className="flex flex-row">
+                <div className="flex flex-col md:flex-row">
                   <Input 
                     type="text" 
                     placeholder={tabContents.mortgage.placeholder}
-                    className="w-full px-4 py-4 rounded-none border-0 border-r border-gray-200 text-gray-700 text-base"
+                    className="w-full px-4 py-4 rounded-none border-0 md:border-r border-gray-200 text-gray-700 text-base"
                   />
-                  {tabContents.mortgage.buttonComponent}
+                  <div className="h-12 md:h-auto">
+                    {tabContents.mortgage.buttonComponent}
+                  </div>
                 </div>
               </TabsContent>
               
               <TabsContent value="estimate" className="mt-0">
-                <div className="flex flex-row">
+                <div className="flex flex-col md:flex-row">
                   <Input 
                     type="text" 
                     placeholder={tabContents.estimate.placeholder}
-                    className="w-full px-4 py-4 rounded-none border-0 border-r border-gray-200 text-gray-700 text-base"
+                    className="w-full px-4 py-4 rounded-none border-0 md:border-r border-gray-200 text-gray-700 text-base"
                   />
-                  {tabContents.estimate.buttonComponent}
+                  <div className="h-12 md:h-auto">
+                    {tabContents.estimate.buttonComponent}
+                  </div>
                 </div>
               </TabsContent>
             </div>
