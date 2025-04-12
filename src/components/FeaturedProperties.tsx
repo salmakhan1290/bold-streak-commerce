@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Bed, Bath, ArrowSquareOut, MapPin } from 'lucide-react';
+import { Home, Bed, Bath, ArrowUpRight, MapPin } from 'lucide-react';
 
 interface Property {
   id: number;
@@ -119,7 +119,7 @@ const FeaturedProperties = () => {
                 </div>
                 <div className="absolute bottom-4 right-4">
                   <span className="bg-white/80 backdrop-blur-sm rounded-full p-2">
-                    <ArrowSquareOut size={20} className="text-brand-navy" />
+                    <ArrowUpRight size={20} className="text-brand-navy" />
                   </span>
                 </div>
               </div>
