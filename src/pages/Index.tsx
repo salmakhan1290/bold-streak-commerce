@@ -2,16 +2,17 @@
 import React from 'react';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
-import FeaturedCollections from '../components/FeaturedCollections';
-import NewArrivals from '../components/NewArrivals';
-import FeatureCollectionSection from '../components/FeatureCollectionSection';
-import LifestyleContentBlock from '../components/LifestyleContentBlock';
-import BestSellers from '../components/BestSellers';
-import Testimonials from '../components/Testimonials';
-import StoreInformation from '../components/StoreInformation';
+import FeaturedProperties from '../components/FeaturedProperties';
+import PropertyCategories from '../components/PropertyCategories';
+import PropertySearch from '../components/PropertySearch';
+import RecentProperties from '../components/RecentProperties';
+import MortgageCalculator from '../components/MortgageCalculator';
+import RealEstateServices from '../components/RealEstateServices';
+import AgentHighlights from '../components/AgentHighlights';
+import FeaturedNeighborhoods from '../components/FeaturedNeighborhoods';
+import LocationInfo from '../components/LocationInfo';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
-import CampaignSection from '../components/CampaignSection';
 
 const Index = () => {
   return (
@@ -19,14 +20,15 @@ const Index = () => {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-        <FeaturedCollections />
-        <NewArrivals />
-        <FeatureCollectionSection />
-        <LifestyleContentBlock />
-        <BestSellers />
-        <CampaignSection />
-        <Testimonials />
-        <StoreInformation />
+        <PropertyCategories />
+        <FeaturedProperties />
+        <PropertySearch />
+        <RecentProperties />
+        <MortgageCalculator />
+        <RealEstateServices />
+        <FeaturedNeighborhoods />
+        <AgentHighlights />
+        <LocationInfo />
         <Newsletter />
       </main>
       <Footer />

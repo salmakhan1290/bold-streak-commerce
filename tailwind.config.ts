@@ -63,13 +63,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Updated brand colors
+				// Updated brand colors for real estate theme
 				brand: {
-					yellow: '#E4B23A',
-					black: '#1C1C1C',
+					red: '#E54545',
+					blue: '#1A73E8',
+					navy: '#262D3D',
 					white: '#FFFFFF',
-					gray: '#AAAAAA',
-					'dark-gray': '#222222',
+					gray: '#6E7175',
+					'light-gray': '#F5F6F7',
+					'dark-gray': '#333333',
 				},
 			},
 			fontFamily: {
